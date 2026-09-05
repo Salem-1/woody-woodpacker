@@ -16,13 +16,6 @@
 # define Elf64_Off uint64_t
 # define EI_NIDENT 16
 
-
-bool	is_validate_file(int argc, char **argv);
-bool	is_valid_elf_header(short fd);
-bool	is_valid_elf_magic(char *buff);
-
-
-
 typedef struct {
         unsigned char   e_ident[EI_NIDENT];
         Elf64_Half      e_type;
@@ -39,6 +32,18 @@ typedef struct {
         Elf64_Half      e_shnum;
         Elf64_Half      e_shstrndx;
 } Elf64_Ehdr;
+
+typedef struct file_info {
+	bool	valid;
+	short	fd;
+	ssize_t	read_count;
+} t_file_info;
+
+
+t_file_info	validate_file(int argc, char **argv);
+bool	is_valid_elf_magic(char *buff);
+bool		is_valid_elf_header(short fd);
+
 
 
 

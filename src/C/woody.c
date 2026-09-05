@@ -2,10 +2,10 @@
 
 int main(int argc, char **argv)
 {
-	bool valid_file;
+	t_file_info file_info;
 
-	valid_file = is_validate_file(argc, argv);
-	if (!valid_file)
+	file_info = validate_file(argc, argv);
+	if (!file_info.valid)
 		return (1);
 	return (0);
 }

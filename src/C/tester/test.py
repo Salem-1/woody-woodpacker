@@ -29,6 +29,8 @@ def	test_args(arg="resources/sample", expected=0):
 	reality_check(out, expected, "😎 Test Passed : giving no arguments", f"😱 Test failed: giving no arguments: , expected {expected} got {out}")
 	out = osystem(f"../woody_woodpacker arg1 arg2")
 	reality_check(out, expected, "😎 Test Passed : giving 2 args", f"😱 Test failed: giving 2 args: , expected {expected} got {out}")
+	out = osystem(f"../woody_woodpacker resources/sample")
+	reality_check(out, expected, "😎 Test Passed : rejecting 32 bit elf files", f"😱 Test failed: rejecting 32 bit elf files: , expected {expected} got {out}")
 	expected = 0
 	out = osystem(f"../woody_woodpacker resources/s64")
 	reality_check(out, expected, "😎 Test Passed : accepting elf 64 bits files only", f"😱 Test failed: accepting elf 64 bits files only: , expected {expected} got {out}")
